@@ -1,4 +1,5 @@
-const API_BASE_URL = 'http://localhost:8000/api';
+// Use relative URL in production (nginx proxies to backend), absolute in development
+const API_BASE_URL = import.meta.env.PROD ? '/api' : 'http://localhost:8000/api';
 
 // Generic fetch wrapper with error handling
 async function fetchAPI(endpoint, options = {}) {
